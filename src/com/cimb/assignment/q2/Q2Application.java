@@ -60,6 +60,18 @@ public class Q2Application {
 			isValidVersion2 = false;
 		}
 		
+		// Validate Version 1 length.
+		if (!isValidLength(version1)) {
+			System.out.println("Version 1 length must be between 1 and 500");
+			isValidVersion1 = false;
+		}
+		
+		// Validate Version 2 length.
+		if (!isValidLength(version2)) {
+			System.out.println("Version 2 length must be between 1 and 500");
+			isValidVersion1 = false;
+		}
+		
 		// If Version 1 or Version 2 invalid, end process.
 		if (!isValidVersion1 || !isValidVersion2) throw new Exception("Invalid Data.");
 		
@@ -114,6 +126,16 @@ public class Q2Application {
 		
 		// return version2s length by assume version2s length is more than version1s length.
 		return version2s.length;
+	}
+	
+	/**
+	 * Check Version length.
+	 * @param data
+	 * @return true if length is between 1 - 500
+	 */
+	private boolean isValidLength(String data) {
+		if (data != null && data.length() >= 1 && data.length() <= 500) return true;
+		return false;
 	}
 
 }
